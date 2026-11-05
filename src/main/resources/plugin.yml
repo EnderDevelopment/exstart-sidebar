@@ -1,0 +1,13 @@
+name: ExstartScoreboard
+version: 1.0.0
+main: com.enderdevelopment.plugin.Main
+api-version: "1.21"
+commands:
+  claimblocks:
+    description: Define claim blocks for a player.
+    usage: /claimblocks <player> <quantidade>
+    permission: exstartscoreboard.admin
+permissions:
+  exstartscoreboard.admin:
+    description: Permite definir os blocos de claim dos jogadores.
+    default: op
