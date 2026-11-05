@@ -77,8 +77,8 @@ public final class Main extends JavaPlugin {
         return hours + "h " + minutes + "m";
     }
 
-    private String entryName(String value) {
-        return ChatColor.values()[Math.floorMod(value.hashCode(), ChatColor.values().length)].toString() + value;
+    private String entryName(int score) {
+        return ChatColor.COLOR_CHAR + "0" + ChatColor.COLOR_CHAR + Integer.toHexString(score);
     }
 
     void updateScoreboard(Player player) {
@@ -96,7 +96,7 @@ public final class Main extends JavaPlugin {
 
         int score = lines.length;
         for (String line : lines) {
-            String entry = entryName("exstart-line-" + score);
+            String entry = entryName(score);
             Team team = scoreboard.registerNewTeam("line" + score);
             team.addEntry(entry);
             team.setPrefix(line.length() > 64 ? line.substring(0, 64) : line);

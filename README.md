@@ -1,36 +1,48 @@
 # Exstart Sidebar Minecraft Plugin
 
-Exstart Sidebar is a Minecraft plugin for Paper servers that provides a live scoreboard sidebar with player claim blocks, total playtime, current session time, an orange Exstart title, and the blue server address exstart.mcsh.gg.
+Exstart Sidebar is a Minecraft scoreboard plugin for Paper servers that displays a sidebar with the orange Exstart title, claim block information, total playtime, current session time, and the blue server address exstart.mcsh.gg.
 
 ## Install
 
-1. Install Java 21 or newer.
-2. Use a Paper Minecraft 1.21.11 server.
-3. Build the plugin with Maven:
-   ```text
-   mvn package
+1. Build the plugin with Java 21 and Maven:
+   ```bash
+   mvn clean package
    ```
-4. Copy `target/plugin.jar` to the server's `plugins` folder.
-5. Start or restart the server.
-6. The plugin creates and uses its configuration file automatically.
-
-To build from source, make sure Maven can access the PaperMC repository defined in `pom.xml`.
+2. Copy the generated `target/plugin.jar` file to your server's `plugins` folder.
+3. Start or restart a Paper Minecraft server running version 1.21.11 or a compatible version.
+4. The plugin creates and manages its data in `plugins/ExstartScoreboard/config.yml`.
 
 ## Use
 
-1. Join the server. The Exstart sidebar appears automatically.
-2. The sidebar displays:
-   - Claim blocks assigned to the player
-   - Total saved playtime
-   - Current session playtime
-   - The server address `exstart.mcsh.gg`
-3. Set a player's claim blocks with:
-   ```text
-   /claimblocks <player> <amount>
-   ```
-4. The command requires the `exstartscoreboard.admin` permission, which is granted to operators by default.
-5. Claim block values must be whole numbers greater than or equal to zero.
-6. Playtime is saved in the plugin configuration when a player leaves and when the server shuts down.
+When a player joins, the sidebar is displayed automatically with:
+
+- An orange `Exstart` title.
+- The player's claim blocks.
+- Total saved playtime.
+- Current session playtime.
+- The blue address `exstart.mcsh.gg`.
+
+The scoreboard refreshes once per second.
+
+To set a player's claim blocks, use:
+
+```text
+/claimblocks <player> <amount>
+```
+
+Example:
+
+```text
+/claimblocks Steve 2500
+```
+
+The command requires the `exstartscoreboard.admin` permission, which is granted to server operators by default. Claim block values and playtime are saved in the plugin configuration.
+
+Requirements:
+
+- Paper 1.21.11 or a compatible Paper server.
+- Java 21 or newer.
+- Maven and Java 21 if building from source.
 
 ---
 
